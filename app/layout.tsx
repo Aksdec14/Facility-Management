@@ -87,7 +87,7 @@ export const metadata: Metadata = {
     description:
       "Smart facility management software for modern enterprises.",
 
-    images: ["/WhiteBG_Logo.jpg"],
+    images: "/WhiteBG_Logo.jpg",
   },
 
   icons: {
