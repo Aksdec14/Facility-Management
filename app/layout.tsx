@@ -2,81 +2,107 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
 });
+
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
 });
+
 export const metadata: Metadata = {
+  metadataBase: new URL("https://fusionedge.io"),
+
   title: {
-    default: "FusionEdge Helpdesk | Smart Facility Support Management",
-    template: "%s | FusionEdge Helpdesk",
+    default: "FusionEdge | Intelligent Facility Management Platform",
+    template: "%s | FusionEdge",
   },
+
   description:
-    "FusionEdge Helpdesk centralizes every facility service request into one intelligent platform. Log, assign, track, and resolve maintenance, cleaning, IT, and infrastructure issues — faster.",
+    "FusionEdge is an intelligent facility management platform that helps organizations streamline operations, manage assets, track maintenance, optimize inventory, and improve workplace efficiency through real-time insights and automation.",
+
   keywords: [
-    "facility helpdesk software",
-    "service request management",
-    "facility management platform",
-    "maintenance ticketing system",
-    "multi-site facility support",
-    "SLA monitoring",
+    "Facility Management Software",
+    "Asset Management Platform",
+    "Work Order Management",
+    "Maintenance Management System",
+    "Inventory Management Software",
+    "Visitor Management System",
+    "Facility Operations Platform",
+    "Enterprise Facility Management",
+    "Smart Facility Management",
     "FusionEdge",
   ],
-  authors: [{ name: "FusionEdge", url: "https://fusionedge.io" }],
+
+  authors: [
+    {
+      name: "FusionEdge",
+      url: "https://fusionedge.io",
+    },
+  ],
+
   creator: "FusionEdge",
-  metadataBase: new URL("https://fusionedge.io"),
-  alternates: {
-    canonical: "/helpdesk",
-  },
-  openGraph: {
-    type: "website",
-    locale: "en_IN",
-    url: "https://fusionedge.io/helpdesk",
-    siteName: "FusionEdge",
-    title: "FusionEdge Helpdesk | Smart Facility Support Management",
-    description:
-      "Centralize every facility service request. Log, assign, track, and resolve issues faster with FusionEdge Helpdesk — built for enterprise facility teams.",
-    images: [
-      {
-        url: "/WhiteBG_Logo.png",
-        width: 1200,
-        height: 630,
-        alt: "FusionEdge Helpdesk Platform",
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "FusionEdge Helpdesk | Smart Facility Support Management",
-    description:
-      "Stop losing facility requests to emails and spreadsheets. FusionEdge Helpdesk gives you full visibility and control — across every site.",
-    images: ["/WhiteBG_Logo.png"],
-    creator: "@fusionedge",
-  },
+  publisher: "FusionEdge",
+
   robots: {
     index: true,
     follow: true,
+    nocache: false,
     googleBot: {
       index: true,
       follow: true,
       "max-image-preview": "large",
       "max-snippet": -1,
+      "max-video-preview": -1,
     },
   },
-  icons: {
-    icon: [
-      { url: "/WhiteBG_Logo.png", type: "image/svg+xml" },
-      { url: "/WhiteBG_Logo.png", sizes: "32x32", type: "image/png" },
+
+  openGraph: {
+    title: "FusionEdge | Intelligent Facility Management Platform",
+    description:
+      "Streamline facility operations, asset management, maintenance scheduling, inventory tracking, and workplace services through one intelligent platform.",
+
+    url: "https://fusionedge.io",
+    siteName: "FusionEdge",
+
+    images: [
+      {
+        url: "/WhiteBG_Logo.png",
+        width: 1200,
+        height: 630,
+        alt: "FusionEdge Facility Management Dashboard",
+      },
     ],
-    apple: "/WhiteBG_Logo.png",
-    shortcut: "/WhiteBG_Logo.png",
+
+    locale: "en_US",
+    type: "website",
   },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "FusionEdge | Intelligent Facility Management Platform",
+    description:
+      "Smart facility management software for modern enterprises.",
+
+    images: ["/WhiteBG_Logo.png"],
+  },
+
+  icons: {
+    icon: "/WhiteBG_Logo.png",
+    shortcut: "/WhiteBG_Logo.png",
+    apple: "/WhiteBG_Logo.png",
+  },
+
+  alternates: {
+    canonical: "https://fusionedge.io",
+  },
+
+  category: "technology",
 };
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -85,13 +111,13 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${geistSans.variable} ${geistMono.variable} h-full scroll-smooth antialiased`}
     >
       <head>
         <link
           rel="icon"
           type="image/svg+xml"
-          href="/fe_logo.png"
+          href="/favicon.ico"
         />
         <script
           type="application/ld+json"
@@ -99,29 +125,39 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "SoftwareApplication",
-              name: "FusionEdge Helpdesk",
+              name: "FusionEdge Digital Asset Register",
               applicationCategory: "BusinessApplication",
               operatingSystem: "Web",
               description:
-                "Centralized facility service request management platform for enterprise teams.",
+                "A single, living record of every facility asset across every site. QR code tagging, document management, and multi-site portfolio management — built for facility managers.",
               offers: {
                 "@type": "Offer",
-                url: "https://fusionedge.io/helpdesk",
+                url: "https://fusionedge.io/digital-asset-register",
               },
               provider: {
                 "@type": "Organization",
                 name: "FusionEdge",
                 url: "https://fusionedge.io",
+                contactPoint: {
+                  "@type": "ContactPoint",
+                  contactType: "sales",
+                  areaServed: ["IN", "SG"],
+                },
               },
             }),
           }}
         />
       </head>
-      <body className="min-h-full flex flex-col">
+      <body className="min-h-screen bg-[#EFE9E3] text-[#1e2a38] flex flex-col overflow-x-hidden">
         <Navbar />
-        {children}
-        <Footer />
+
+        <main className="flex-1">
+          {children}
+        </main>
       </body>
     </html>
   );
 }
+
+
+
