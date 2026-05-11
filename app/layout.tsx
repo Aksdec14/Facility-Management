@@ -70,7 +70,7 @@ export const metadata: Metadata = {
 
     images: [
       {
-        url: "/WhiteBG_Logo.png",
+        url: "/WhiteBG_Logo.jpg",
         width: 1200,
         height: 630,
         alt: "FusionEdge Facility Management Dashboard",
@@ -87,13 +87,13 @@ export const metadata: Metadata = {
     description:
       "Smart facility management software for modern enterprises.",
 
-    images: ["/WhiteBG_Logo.png"],
+    images: ["/WhiteBG_Logo.jpg"],
   },
 
   icons: {
-    icon: "/WhiteBG_Logo.png",
-    shortcut: "/WhiteBG_Logo.png",
-    apple: "/WhiteBG_Logo.png",
+    icon: "/WhiteBG_Logo.jpg",
+    shortcut: "/WhiteBG_Logo.jpg",
+    apple: "/WhiteBG_Logo.jpg",
   },
 
   alternates: {
