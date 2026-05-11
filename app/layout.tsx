@@ -13,15 +13,16 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-// 1. Separate Viewport configuration (Next.js 14+ standard)
 export const viewport: Viewport = {
   themeColor: "#EFE9E3",
   width: "device-width",
   initialScale: 1,
-  maximumScale: 5, // Good for accessibility while allowing zoom
+  maximumScale: 5,
 };
 
 export const metadata: Metadata = {
+  // If you are developing locally, metadataBase can sometimes cause OG images 
+  // not to show in local previews. It works perfectly once deployed.
   metadataBase: new URL("https://fusionedge.io"),
 
   title: {
@@ -30,44 +31,29 @@ export const metadata: Metadata = {
   },
 
   description:
-    "FusionEdge is an intelligent facility management platform that helps organizations streamline operations, manage assets, track maintenance, and improve workplace efficiency through real-time insights.",
+    "FusionEdge is an intelligent facility management platform that helps organizations streamline operations and manage assets through real-time insights.",
 
-  // Keywords are optional as Google ignores them, but other engines (Baidu/Yandex) use them.
-  keywords: [
-    "Facility Management Software",
-    "Asset Management Platform",
-    "Work Order Management",
-    "Maintenance Management System",
-  ],
-
-  authors: [{ name: "FusionEdge", url: "https://fusionedge.io" }],
-  creator: "FusionEdge",
-  publisher: "FusionEdge",
-
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-      "max-video-preview": -1,
-    },
+  // I updated these paths to be more standard. 
+  // ENSURE these files exist in your /public folder!
+  icons: {
+    icon: [
+      { url: "/favicon.ico" }, 
+      { url: "/icon.svg", type: "image/svg+xml" },
+    ],
+    apple: "/apple-touch-icon.png", 
   },
 
   openGraph: {
     title: "FusionEdge | Intelligent Facility Management Platform",
-    description:
-      "Streamline facility operations, asset management, and maintenance through one intelligent platform.",
+    description: "Streamline facility operations and asset management.",
     url: "https://fusionedge.io",
     siteName: "FusionEdge",
     images: [
       {
-        url: "/og-image.png", // Pro tip: Use a dedicated OG image, not just your logo
+        url: "/og-image.png", // Verify this file is in /public
         width: 1200,
         height: 630,
-        alt: "FusionEdge Facility Management Dashboard Overview",
+        alt: "FusionEdge Platform Preview",
       },
     ],
     locale: "en_US",
@@ -76,27 +62,8 @@ export const metadata: Metadata = {
 
   twitter: {
     card: "summary_large_image",
-    title: "FusionEdge | Intelligent Facility Management Platform",
-    description: "Smart facility management software for modern enterprises.",
-    images: ["/og-image.png"],
+    images: ["/og-image.png"], 
   },
-
-  // 2. Optimized Icons Section
-  icons: {
-    icon: [
-      { url: "/favicon.ico" }, // Standard favicon
-      { url: "/icon.svg", type: "image/svg+xml" }, // Modern browsers
-    ],
-    apple: [
-      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
-    ],
-  },
-
-  alternates: {
-    canonical: "https://fusionedge.io",
-  },
-
-  category: "technology",
 };
 
 export default function RootLayout({
@@ -104,40 +71,21 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  // 3. Expanded Schema.org Data (Organization + Software)
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
       {
         "@type": "Organization",
-        "@id": "https://fusionedge.io/#organization",
         "name": "FusionEdge",
         "url": "https://fusionedge.io",
-        "logo": "https://fusionedge.io/WhiteBG_Logo.png",
-        "contactPoint": {
-          "@type": "ContactPoint",
-          "contactType": "sales",
-          "areaServed": ["IN", "SG"],
-        },
-      },
-      {
-        "@type": "WebSite",
-        "@id": "https://fusionedge.io/#website",
-        "url": "https://fusionedge.io",
-        "name": "FusionEdge",
-        "publisher": { "@id": "https://fusionedge.io/#organization" },
+        "logo": "https://fusionedge.io/WhiteBG_Logo.png", // Must be a full URL
       },
       {
         "@type": "SoftwareApplication",
         "name": "FusionEdge Digital Asset Register",
         "applicationCategory": "BusinessApplication",
         "operatingSystem": "Web",
-        "description": "A single, living record of every facility asset across every site.",
-        "offers": {
-          "@type": "Offer",
-          "url": "https://fusionedge.io/pricing",
-          "priceCurrency": "USD",
-        },
+        "description": "A single, living record of every facility asset.",
       },
     ],
   };
@@ -147,7 +95,6 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full scroll-smooth antialiased`}
     >
-      {/* 4. Removed manual favicon links from head - Metadata API handles this now */}
       <head>
         <script
           type="application/ld+json"
