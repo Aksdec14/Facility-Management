@@ -62,15 +62,17 @@ export const metadata: Metadata = {
 
   openGraph: {
     title: "FusionEdge | Intelligent Facility Management Platform",
+
     description:
       "Streamline facility operations, asset management, maintenance scheduling, inventory tracking, and workplace services through one intelligent platform.",
 
     url: "https://fusionedge.io",
+
     siteName: "FusionEdge",
 
     images: [
       {
-        url: "/WhiteBG_Logo.jpg",
+        url: "https://fusionedge.io/WhiteBG_Logo.jpg",
         width: 1200,
         height: 630,
         alt: "FusionEdge Facility Management Dashboard",
@@ -83,17 +85,21 @@ export const metadata: Metadata = {
 
   twitter: {
     card: "summary_large_image",
+
     title: "FusionEdge | Intelligent Facility Management Platform",
+
     description:
       "Smart facility management software for modern enterprises.",
 
-    images: "/WhiteBG_Logo.jpg",
+    images: [
+      "https://fusionedge.io/WhiteBG_Logo.jpg",
+    ],
   },
 
   icons: {
-    icon: "/WhiteBG_Logo.jpg",
-    shortcut: "/WhiteBG_Logo.jpg",
-    apple: "/WhiteBG_Logo.jpg",
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+    apple: "/favicon.ico",
   },
 
   alternates: {
@@ -116,28 +122,39 @@ export default function RootLayout({
       <head>
         <link
           rel="icon"
-          type="image/svg+xml"
+          type="image/x-icon"
           href="/favicon.ico"
         />
+
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
+
               "@type": "SoftwareApplication",
+
               name: "FusionEdge Digital Asset Register",
+
               applicationCategory: "BusinessApplication",
+
               operatingSystem: "Web",
+
               description:
                 "A single, living record of every facility asset across every site. QR code tagging, document management, and multi-site portfolio management — built for facility managers.",
+
               offers: {
                 "@type": "Offer",
                 url: "https://fusionedge.io/digital-asset-register",
               },
+
               provider: {
                 "@type": "Organization",
+
                 name: "FusionEdge",
+
                 url: "https://fusionedge.io",
+
                 contactPoint: {
                   "@type": "ContactPoint",
                   contactType: "sales",
@@ -148,6 +165,7 @@ export default function RootLayout({
           }}
         />
       </head>
+
       <body className="min-h-screen bg-[#EFE9E3] text-[#1e2a38] flex flex-col overflow-x-hidden">
         <Navbar />
 
