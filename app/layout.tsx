@@ -38,9 +38,9 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       { url: "/favicon.ico" }, 
-      { url: "/icon.svg", type: "image/svg+xml" },
+      { url: "/favicon.ico", type: "image/svg+xml" },
     ],
-    apple: "/apple-touch-icon.png", 
+    apple: "/favicon.ico", 
   },
 
   openGraph: {
@@ -50,7 +50,7 @@ export const metadata: Metadata = {
     siteName: "FusionEdge",
     images: [
       {
-        url: "/WhiteBG_Logo.jpg", // Verify this file is in /public
+        url: "/logo.png", // Verify this file is in /public
         width: 1200,
         height: 630,
         alt: "FusionEdge Platform Preview",
@@ -62,7 +62,7 @@ export const metadata: Metadata = {
 
   twitter: {
     card: "summary_large_image",
-    images: ["/WhiteBG_Logo.jpg"], 
+    images: ["/logo.png"], 
   },
 };
 
