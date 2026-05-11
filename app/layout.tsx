@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/Navbar";
+import Footer from "./components/FooterSection";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -27,13 +28,13 @@ export const metadata: Metadata = {
   keywords: [
     "Facility Management Software",
     "Asset Management Platform",
-    "Work Order Management",
     "Maintenance Management System",
+    "Work Order Management",
     "Inventory Management Software",
-    "Visitor Management System",
-    "Facility Operations Platform",
-    "Enterprise Facility Management",
     "Smart Facility Management",
+    "Enterprise Facility Operations",
+    "Visitor Management System",
+    "Facility Automation Platform",
     "FusionEdge",
   ],
 
@@ -45,42 +46,35 @@ export const metadata: Metadata = {
   ],
 
   creator: "FusionEdge",
+
   publisher: "FusionEdge",
 
-  robots: {
-    index: true,
-    follow: true,
-    nocache: false,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-      "max-video-preview": -1,
-    },
+  alternates: {
+    canonical: "https://fusionedge.io",
   },
 
   openGraph: {
-    title: "FusionEdge | Intelligent Facility Management Platform",
+    type: "website",
 
-    description:
-      "Streamline facility operations, asset management, maintenance scheduling, inventory tracking, and workplace services through one intelligent platform.",
+    locale: "en_US",
 
     url: "https://fusionedge.io",
 
     siteName: "FusionEdge",
+
+    title: "FusionEdge | Intelligent Facility Management Platform",
+
+    description:
+      "Streamline facility operations, asset management, maintenance scheduling, inventory tracking, and workplace services through one intelligent platform.",
 
     images: [
       {
         url: "https://fusionedge.io/WhiteBG_Logo.jpg",
         width: 1200,
         height: 630,
-        alt: "FusionEdge Facility Management Dashboard",
+        alt: "FusionEdge Intelligent Facility Management Platform",
       },
     ],
-
-    locale: "en_US",
-    type: "website",
   },
 
   twitter: {
@@ -94,16 +88,35 @@ export const metadata: Metadata = {
     images: [
       "https://fusionedge.io/WhiteBG_Logo.jpg",
     ],
+
+    creator: "@fusionedge",
+  },
+
+  robots: {
+    index: true,
+
+    follow: true,
+
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
   },
 
   icons: {
-    icon: "/favicon.ico",
-    shortcut: "/favicon.ico",
-    apple: "/favicon.ico",
-  },
+    icon: [
+      {
+        url: "/fe_logo.png",
+        type: "image/x-icon",
+      },
+    ],
 
-  alternates: {
-    canonical: "https://fusionedge.io",
+    apple: "/fe_logo.png",
+
+    shortcut: "/fe_logo.png",
   },
 
   category: "technology",
@@ -117,13 +130,13 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full scroll-smooth antialiased`}
+      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <head>
         <link
           rel="icon"
           type="image/x-icon"
-          href="/favicon.ico"
+          href="/fe_logo.png"
         />
 
         <script
@@ -134,18 +147,19 @@ export default function RootLayout({
 
               "@type": "SoftwareApplication",
 
-              name: "FusionEdge Digital Asset Register",
+              name: "FusionEdge",
 
               applicationCategory: "BusinessApplication",
 
               operatingSystem: "Web",
 
               description:
-                "A single, living record of every facility asset across every site. QR code tagging, document management, and multi-site portfolio management — built for facility managers.",
+                "Intelligent facility management platform for enterprise operations, maintenance tracking, asset management, and workplace optimization.",
 
               offers: {
                 "@type": "Offer",
-                url: "https://fusionedge.io/digital-asset-register",
+
+                url: "https://fusionedge.io",
               },
 
               provider: {
@@ -154,24 +168,20 @@ export default function RootLayout({
                 name: "FusionEdge",
 
                 url: "https://fusionedge.io",
-
-                contactPoint: {
-                  "@type": "ContactPoint",
-                  contactType: "sales",
-                  areaServed: ["IN", "SG"],
-                },
               },
             }),
           }}
         />
       </head>
 
-      <body className="min-h-screen bg-[#EFE9E3] text-[#1e2a38] flex flex-col overflow-x-hidden">
+      <body className="min-h-full flex flex-col bg-[#EFE9E3] text-[#1e2a38] overflow-x-hidden">
         <Navbar />
 
         <main className="flex-1">
           {children}
         </main>
+
+        <Footer />
       </body>
     </html>
   );
