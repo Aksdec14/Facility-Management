@@ -21,8 +21,6 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  // If you are developing locally, metadataBase can sometimes cause OG images 
-  // not to show in local previews. It works perfectly once deployed.
   metadataBase: new URL("https://fusionedge.io"),
 
   title: {
@@ -33,14 +31,13 @@ export const metadata: Metadata = {
   description:
     "FusionEdge is an intelligent facility management platform that helps organizations streamline operations and manage assets through real-time insights.",
 
-  // I updated these paths to be more standard. 
-  // ENSURE these files exist in your /public folder!
+  // FIXED: Removed the SVG type from the .ico file and linked the PNG for Apple
   icons: {
     icon: [
-      { url: "/favicon.ico" }, 
-      { url: "/favicon.ico", type: "image/svg+xml" },
+      { url: "/favicon.ico" }, // Standard favicon
+      { url: "/logo.png", type: "image/png" }, // Backup icon
     ],
-    apple: "/favicon.ico", 
+    apple: "/logo.png", // Use the PNG for Apple touch icons
   },
 
   openGraph: {
@@ -50,7 +47,7 @@ export const metadata: Metadata = {
     siteName: "FusionEdge",
     images: [
       {
-        url: "/logo.png", // Verify this file is in /public
+        url: "/logo.png", // This matches your file tree exactly
         width: 1200,
         height: 630,
         alt: "FusionEdge Platform Preview",
@@ -62,7 +59,7 @@ export const metadata: Metadata = {
 
   twitter: {
     card: "summary_large_image",
-    images: ["/logo.png"], 
+    images: ["/logo.png"],
   },
 };
 
@@ -76,9 +73,11 @@ export default function RootLayout({
     "@graph": [
       {
         "@type": "Organization",
+        "@id": "https://fusionedge.io/#organization",
         "name": "FusionEdge",
         "url": "https://fusionedge.io",
-        "logo": "https://fusionedge.io/WhiteBG_Logo.png", // Must be a full URL
+        // FIXED: Changed .png to .jpg to match your WhiteBG_Logo.jpg file
+        "logo": "https://fusionedge.io/WhiteBG_Logo.jpg", 
       },
       {
         "@type": "SoftwareApplication",
