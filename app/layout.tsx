@@ -50,7 +50,7 @@ export const metadata: Metadata = {
     siteName: "FusionEdge",
     images: [
       {
-        url: "/og-image.png", // Verify this file is in /public
+        url: "/WhiteBG_Logo.jpg", // Verify this file is in /public
         width: 1200,
         height: 630,
         alt: "FusionEdge Platform Preview",
@@ -62,7 +62,7 @@ export const metadata: Metadata = {
 
   twitter: {
     card: "summary_large_image",
-    images: ["/og-image.png"], 
+    images: ["/WhiteBG_Logo.jpg"], 
   },
 };
 
